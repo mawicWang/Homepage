@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/defaultLayout">
+<head>
+    <!--<meta charset="utf-8"/>-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge"/>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <!--&lt;!&ndash; 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ &ndash;&gt;-->
+
+    <title>Index</title>
+
+    <!--<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap-flaty.min.css}"/>-->
+    <!--<link rel="stylesheet" th:href="@{/css/custom.css}"/>-->
+
+    <!--<script th:src="@{/jquery/jquery-3.2.1.min.js}"></script>-->
+    <!--<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>-->
+
+</head>
+<body>
+
+<div th:include="fragment/navbar::navbar"></div>
+
+<div layout:fragment="before-content" class="jumbotron">
+    <div class="container">
+        <h1>╯°□°）╯︵ ┻━┻</h1>
+        <p>Hello, <b th:text="${session.user}?${session.user.username}:'Tom'"></b></p>
+        <p><a class="btn btn-primary btn-lg">∑(っ °Д °;)っ</a></p>
+    </div>
+</div>
+
+<div class="container"><!-- .container is not necessary -->
+    <div layout:fragment="content">
+
+        <div th:include="fragment/footer::copy"></div>
+
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>以下</strong> 是实验代码
+        </div>
+
+
+        <!-- demo below -->
+        <div class="row">
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+            <div class="col-md-3">.col-md-3</div>
+        </div>
+        <h1><code>&lt;h1&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h1>
+        <h2><code>&lt;h2&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h2>
+        <h3><code>&lt;h3&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h3>
+        <h4><code>&lt;h4&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h4>
+        <h5><code>&lt;h5&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h5>
+        <h6><code>&lt;h6&gt;</code>. Bootstrap heading
+            <small>Secondary text</small>
+        </h6>
+        <h1 class="text-hide">Custom heading</h1>
+        <p class="bg-success">页面主题，正文<br/>akhfaksksajhflkasjhdflaskhfaklsjhflakshfkashdfkj,askdfhsakfjhsalkfhj</p>
+        <p class="text-left">段落：发卡机活动卡激活的<kbd>ctrl+l</kbd>卡号大客户打卡机活动空间asdasdasda</p>
+        <p class="lead text-right">更突出的段落
+            <mark>高亮</mark>
+            卡卡卡
+            <del>删除</del>
+            卡卡卡卡asdasdads
+        </p>
+        <p class="text-center">普通段落啊开始<abbr class="initialism" title="比较小">疯狂</abbr><abbr
+                title="skldjfsfjlasjflks">世界</abbr>合肥科
+            <mark>高亮</mark>
+            技爱好
+            <del>删除</del>
+            反馈哈时刻发挥空间发挥asdasdasd
+        </p>
+        <del><code>&lt;del&gt;</code></del>
+        <s><code>&lt;s&gt;</code></s>
+        <ins><code>&lt;ins&gt;</code></ins>
+        <u><code>&lt;u&gt;</code></u>
+        <br/>
+        <pre>&lt;p&gt;Sample text here...&lt;/p&gt; using <code>&lt;pre&gt;</code><br/>
+            @RequestMapping("/showAllUser")
+            public String showAllUser(@RequestParam int pageNum, @RequestParam int pageSize, Model model) {
+                PageHelper.startPage(pageNum, pageSize);
+                List&lt;User&gt; listUser = userService.findAll();
+                PageInfo page = new PageInfo(listUser);
+                System.out.println(page.getTotal());
+                model.addAttribute(listUser);
+                model.addAttribute("aa", "avalue");
+                return "user/listUser";
+            }
+        </pre>
+        <br/>
+        <samp>This text is meant to be treated as sample output from a computer program.</samp>
+        <br/><br/>
+
+        <div class="well">
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Legend</legend>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/> Checkbox
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Radios</label>
+                        <div class="col-lg-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
+                                           checked=""/>
+                                    Option one is this
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
+                                    Option two can be something else
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">Selects</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <br/>
+                            <select multiple="" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <blockquote>
+            <p>将任何 HTML 元素包裹在<code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用<code>&lt;p&gt;</code>标签</p>
+            <footer>某个人 in <cite title="什么鬼东西">《阿布拉把杜布拉》</cite></footer>
+        </blockquote>
+
+        <ul>
+            <li>aaa</li>
+            <li>vvv</li>
+            <li>dasda
+                <ul>
+                    <li>1111</li>
+                    <li>22222</li>
+                    <li>3333
+                        <ul>
+                            <li>1111</li>
+                            <li>22222</li>
+                            <li>3333</li>
+                        </ul>
+                    </li>
+                    <li>4444</li>
+                    <li>555</li>
+                    <li>666</li>
+                </ul>
+            </li>
+            <li>ccc</li>
+            <li>dd
+                <ul>
+                    <li>1111</li>
+                    <li>22222</li>
+                    <li>3333</li>
+                </ul>
+            </li>
+        </ul>
+
+        <ol>
+            <li>aaa</li>
+            <li>vvv</li>
+            <li>dasda
+                <ol>
+                    <li>1111</li>
+                    <li>22222</li>
+                    <li>3333
+                        <ul>
+                            <li>1111</li>
+                            <li>22222</li>
+                            <li>3333</li>
+                        </ul>
+                    </li>
+                    <li>4444</li>
+                    <li>555</li>
+                    <li>666</li>
+                </ol>
+            </li>
+            <li>ccc</li>
+            <li>dd
+                <ol>
+                    <li>1111</li>
+                    <li>22222</li>
+                    <li>3333</li>
+                </ol>
+            </li>
+        </ol>
+
+        <dl class="dl-horizontal">
+            <dt><code>&lt;dt&gt;</code> is a Description</dt>
+            <dd><code>&lt;dd&gt;</code> is the content</dd>
+            <dd>and wrapped with <code>&lt;dl&gt;</code></dd>
+            <dt>Euismod</dt>
+            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                Donec id elit non mi porta gravida at eget metus.
+            </dd>
+            <dt>Malesuada porta</dt>
+            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>
