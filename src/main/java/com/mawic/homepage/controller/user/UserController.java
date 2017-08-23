@@ -20,7 +20,7 @@ public class UserController {
     @RequestMapping("/showAllUser")
     public String showAllUser(@RequestParam int pageNum, @RequestParam int pageSize, Model model) {
         List<User> listUser = userService.findAllUser(pageNum, pageSize);
-        PageInfo page = new PageInfo(listUser);
+        PageInfo page = new PageInfo(listUser,5);
         model.addAttribute(listUser);
         model.addAttribute(page);
         return "user/listUser";

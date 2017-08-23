@@ -20,14 +20,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbarCollapseArea">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a th:href="@{/index}">首页 <span class="sr-only">(current)</span></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">啥啥 <span class="caret"></span></a>
+                           aria-expanded="false">都有啥 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:changeTheme()">换肤</a></li>
+                            <li><a th:href="@{/game}">游戏</a></li>
                             <li><a href="#">文章</a></li>
-                            <li><a href="#">盐汽水</a></li>
                             <li><a href="#">九龙斋酸梅汤e</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="http://baidu.com">百度</a></li>
@@ -40,6 +40,14 @@
                                     </svg>
                                 </span> GitHub</a>
                             </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">配置 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/showAllUser((pageNum=1,pageSize=3))}">用户</a></li>
+                            <li><a href="#">类别</a></li>
                         </ul>
                     </li>
                 </ul>
