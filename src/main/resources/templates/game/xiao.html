@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/defaultLayout">
+<head>
+    <title>消消乐</title>
+</head>
+<body>
+
+<div class="container"><!-- .container is not necessary -->
+    <div layout:fragment="content">
+
+
+        <br/>
+
+        <canvas id="myCanvas" width="800" height="500"
+                style="border:1px solid #000000;" >
+        </canvas>
+
+        <script th:src="@{/js/xiao.js}"></script>
+    </div>
+</div>
+</body>
+</html>
