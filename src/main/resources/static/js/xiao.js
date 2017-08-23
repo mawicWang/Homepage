@@ -462,6 +462,24 @@ function checkElimination(ele) {
 
 }
 
+function fixRequestAnimationFrame() {
+    if (!window.requestAnimationFrame) {
+
+        window.requestAnimationFrame = (function () {
+
+            return window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+
+        })();
+
+    }
+}
+
 function cavasClickListener(e) {
     if (board.processingAnimationNum != 0) {
         return;
@@ -533,6 +551,7 @@ function cavasMouseUpListener(e) {
 
 
 $(document).ready(function () {
+    fixRequestAnimationFrame();
     initBoard(getAvailableEles());
     cavas.addEventListener("click", cavasClickListener);
     cavas.addEventListener("mousedown", cavasMouseDownListener);
