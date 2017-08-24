@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/defaultLayout">
+<head>
+    <title>游戏</title>
+</head>
+<body>
+
+<div class="container"><!-- .container is not necessary -->
+    <div layout:fragment="content">
+        <br/>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a th:href="@{/game/xiao}">
+                        <img th:src="@{/images/xiao.png}"/>
+                    </a>
+                    <div class="caption">
+                        <h3>H5 消消乐</h3>
+                        <p>纯cavas+js实现</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
