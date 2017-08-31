@@ -1,10 +1,10 @@
 package com.mawic.homepage.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.mawic.homepage.domain.mapper.LoginRecordMapper;
-import com.mawic.homepage.domain.mapper.UserMapper;
-import com.mawic.homepage.domain.model.LoginRecord;
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.mapper.user.LoginRecordMapper;
+import com.mawic.homepage.domain.mapper.user.UserMapper;
+import com.mawic.homepage.domain.model.user.LoginRecord;
+import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

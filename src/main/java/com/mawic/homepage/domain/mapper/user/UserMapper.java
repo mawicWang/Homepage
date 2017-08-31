@@ -1,6 +1,6 @@
-package com.mawic.homepage.domain.mapper;
+package com.mawic.homepage.domain.mapper.user;
 
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.model.user.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

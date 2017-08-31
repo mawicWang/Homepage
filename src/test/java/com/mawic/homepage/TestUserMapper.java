@@ -1,7 +1,7 @@
 package com.mawic.homepage;
 
-import com.mawic.homepage.domain.mapper.UserMapper;
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.mapper.user.UserMapper;
+import com.mawic.homepage.domain.model.user.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.mawic.homepage.controller.user;
 
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

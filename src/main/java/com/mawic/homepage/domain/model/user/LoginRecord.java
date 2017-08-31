@@ -1,4 +1,4 @@
-package com.mawic.homepage.domain.model;
+package com.mawic.homepage.domain.model.user;
 
 import java.util.Date;
 

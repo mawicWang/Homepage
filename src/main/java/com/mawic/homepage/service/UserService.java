@@ -1,6 +1,6 @@
 package com.mawic.homepage.service;
 
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.model.user.User;
 
 import java.util.List;
 

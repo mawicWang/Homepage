@@ -1,6 +1,6 @@
 package com.mawic.homepage.controller.user;
 
-import com.mawic.homepage.domain.model.User;
+import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.text.MessageFormat;
 
 @Controller
+//@Transactional
 public class LoginController {
 
     @Autowired
@@ -22,11 +23,6 @@ public class LoginController {
     @PostMapping(value = "/postLogin")
     public boolean postLogin(@RequestBody User submitUser, HttpSession session) {
         User user = userService.validateLogin(submitUser.getUsername(), submitUser.getPassword());
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         if (user != null) {
             String loginInfo = MessageFormat.format("login success, username: {0}, password: {1} ", submitUser.getUsername(), submitUser.getPassword());
             userService.recordLogin(user, loginInfo);
