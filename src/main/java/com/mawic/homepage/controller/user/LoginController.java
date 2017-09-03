@@ -4,6 +4,8 @@ import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.text.MessageFormat;
 
 @Controller
-//@Transactional
+@Transactional(readOnly = true)
 public class LoginController {
 
     @Autowired
@@ -21,6 +23,7 @@ public class LoginController {
 
     @ResponseBody
     @PostMapping(value = "/postLogin")
+    @Transactional(propagation = Propagation.REQUIRED)
     public boolean postLogin(@RequestBody User submitUser, HttpSession session) {
         User user = userService.validateLogin(submitUser.getUsername(), submitUser.getPassword());
         if (user != null) {
