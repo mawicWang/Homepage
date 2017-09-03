@@ -22,8 +22,9 @@
 <div layout:fragment="before-content" class="jumbotron">
     <div class="container">
         <h1>╯°□°）╯︵ ┻━┻</h1>
-        <p>Hello, <b th:text="${session.user}?${session.user.username}:'Tom'"></b></p>
-        <p><a class="btn btn-primary btn-lg">∑(っ °Д °;)っ</a></p>
+        <p>尚未佩妥剑,转眼便江湖</p>
+        <p>愿历经千帆,归来仍少年</p>
+        <p><a th:href="'https://github.com/mawicWang/Homepage'" target="_blank" class="btn btn-primary btn-lg">∑(っ °Д °;)っ>>>>>>GitHub</a></p>
     </div>
 </div>
 
@@ -32,333 +33,335 @@
 
         <div th:include="fragment/footer::copy"></div>
 
+        <div class="hide">
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>以下</strong> 是实验代码
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- form: -->
+                    <section>
+                        <div class="page-header">
+                            <h1>Built-in validators</h1>
+                        </div>
 
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>以下</strong> 是实验代码
-        </div>
-        <div class="container">
-            <div class="row">
-                <!-- form: -->
-                <section>
-                    <div class="page-header">
-                        <h1>Built-in validators</h1>
-                    </div>
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <form id="defaultForm" method="post" action="target.php" class="form-horizontal">
+                                <fieldset>
+                                    <legend>Not Empty validator</legend>
 
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <form id="defaultForm" method="post" action="target.php" class="form-horizontal">
-                            <fieldset>
-                                <legend>Not Empty validator</legend>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Username</label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" name="username" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Country</label>
-                                    <div class="col-lg-5">
-                                        <select class="form-control" name="country">
-                                            <option value="">-- Select a country --</option>
-                                            <option value="fr">France</option>
-                                            <option value="de">Germany</option>
-                                            <option value="it">Italy</option>
-                                            <option value="jp">Japan</option>
-                                            <option value="ru">Russia</option>
-                                            <option value="gb">United Kingdom</option>
-                                            <option value="us">United State</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-lg-5 col-lg-offset-3">
-                                        <div class="checkbox">
-                                            <input type="checkbox" name="acceptTerms" /> Accept the terms and policies
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Username</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="username"/>
                                         </div>
                                     </div>
-                                </div>
-                            </fieldset>
 
-                            <fieldset>
-                                <legend>Regular expression based validators</legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Country</label>
+                                        <div class="col-lg-5">
+                                            <select class="form-control" name="country">
+                                                <option value="">-- Select a country --</option>
+                                                <option value="fr">France</option>
+                                                <option value="de">Germany</option>
+                                                <option value="it">Italy</option>
+                                                <option value="jp">Japan</option>
+                                                <option value="ru">Russia</option>
+                                                <option value="gb">United Kingdom</option>
+                                                <option value="us">United State</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-5 col-lg-offset-3">
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="acceptTerms"/> Accept the terms and
+                                                policies
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Regular expression based validators</legend>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Email address</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="email"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Website</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="website"
+                                                   placeholder="http://"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">US Phone number</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="phoneNumberUS"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">UK Phone number</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control" name="phoneNumberUK"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Hex, RGB, HSL, Keyword color</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" name="color"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">All colors</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" name="colorAll"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">US zip code</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" name="zipCode"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Identical validator</legend>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Password</label>
+                                        <div class="col-lg-5">
+                                            <input type="password" class="form-control" name="password"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Retype password</label>
+                                        <div class="col-lg-5">
+                                            <input type="password" class="form-control" name="confirmPassword"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend>Other validators</legend>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Ages</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" name="ages"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
 
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label">Email address</label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" name="email" />
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Website</label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" name="website" placeholder="http://" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">US Phone number</label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" name="phoneNumberUS" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">UK Phone number</label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" name="phoneNumberUK" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Hex, RGB, HSL, Keyword color</label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" name="color" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">All colors</label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" name="colorAll" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">US zip code</label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" name="zipCode" />
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            <fieldset>
-                                <legend>Identical validator</legend>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Password</label>
-                                    <div class="col-lg-5">
-                                        <input type="password" class="form-control" name="password" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Retype password</label>
-                                    <div class="col-lg-5">
-                                        <input type="password" class="form-control" name="confirmPassword" />
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            <fieldset>
-                                <legend>Other validators</legend>
-
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Ages</label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" name="ages" />
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            <div class="form-group">
-                                <div class="col-lg-9 col-lg-offset-3">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-                <!-- :form -->
+                            </form>
+                        </div>
+                    </section>
+                    <!-- :form -->
+                </div>
             </div>
-        </div>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#defaultForm').formValidation({
-                    message: 'This value is not valid',
-                    icon: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
-                        username: {
-                            message: 'The username is not valid',
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required and can\'t be empty'
-                                },
-                                stringLength: {
-                                    min: 6,
-                                    max: 30,
-                                    message: 'The username must be more than 6 and less than 30 characters long'
-                                },
-                                regexp: {
-                                    regexp: /^[a-zA-Z0-9_\.]+$/,
-                                    message: 'The username can only consist of alphabetical, number, dot and underscore'
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#defaultForm').formValidation({
+                        message: 'This value is not valid',
+                        icon: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            username: {
+                                message: 'The username is not valid',
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The username is required and can\'t be empty'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 30,
+                                        message: 'The username must be more than 6 and less than 30 characters long'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                                    }
                                 }
-                            }
-                        },
-                        country: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The country is required and can\'t be empty'
+                            },
+                            country: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The country is required and can\'t be empty'
+                                    }
                                 }
-                            }
-                        },
-                        acceptTerms: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'You have to accept the terms and policies'
+                            },
+                            acceptTerms: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'You have to accept the terms and policies'
+                                    }
                                 }
-                            }
-                        },
-                        email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The email address is required and can\'t be empty'
-                                },
-                                emailAddress: {
-                                    message: 'The input is not a valid email address'
+                            },
+                            email: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The email address is required and can\'t be empty'
+                                    },
+                                    emailAddress: {
+                                        message: 'The input is not a valid email address'
+                                    }
                                 }
-                            }
-                        },
-                        website: {
-                            validators: {
-                                uri: {
-                                    message: 'The input is not a valid URL'
+                            },
+                            website: {
+                                validators: {
+                                    uri: {
+                                        message: 'The input is not a valid URL'
+                                    }
                                 }
-                            }
-                        },
-                        phoneNumberUS: {
-                            validators: {
-                                phone: {
-                                    message: 'The input is not a valid US phone number'
+                            },
+                            phoneNumberUS: {
+                                validators: {
+                                    phone: {
+                                        message: 'The input is not a valid US phone number'
+                                    }
                                 }
-                            }
-                        },
-                        phoneNumberUK: {
-                            validators: {
-                                phone: {
-                                    message: 'The input is not a valid UK phone number',
-                                    country: 'GB'
+                            },
+                            phoneNumberUK: {
+                                validators: {
+                                    phone: {
+                                        message: 'The input is not a valid UK phone number',
+                                        country: 'GB'
+                                    }
                                 }
-                            }
-                        },
-                        color: {
-                            validators: {
-                                color: {
-                                    type: ['hex', 'rgb', 'hsl', 'keyword'],
-                                    message: 'Must be a valid %s color'
+                            },
+                            color: {
+                                validators: {
+                                    color: {
+                                        type: ['hex', 'rgb', 'hsl', 'keyword'],
+                                        message: 'Must be a valid %s color'
+                                    }
                                 }
-                            }
-                        },
-                        colorAll: {
-                            validators: {
-                                color: {}
-                            }
-                        },
-                        zipCode: {
-                            validators: {
-                                zipCode: {
-                                    country: 'US',
-                                    message: 'The input is not a valid US zip code'
+                            },
+                            colorAll: {
+                                validators: {
+                                    color: {}
                                 }
-                            }
-                        },
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The password is required and can\'t be empty'
+                            },
+                            zipCode: {
+                                validators: {
+                                    zipCode: {
+                                        country: 'US',
+                                        message: 'The input is not a valid US zip code'
+                                    }
                                 }
-                            }
-                        },
-                        confirmPassword: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The confirm password is required and can\'t be empty'
-                                },
-                                identical: {
-                                    field: 'password',
-                                    message: 'The password and its confirm are not the same'
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The password is required and can\'t be empty'
+                                    }
                                 }
-                            }
-                        },
-                        ages: {
-                            validators: {
-                                lessThan: {
-                                    value: 100,
-                                    inclusive: true,
-                                    message: 'The ages has to be less than 100'
-                                },
-                                greaterThan: {
-                                    value: 10,
-                                    inclusive: false,
-                                    message: 'The ages has to be greater than or equals to 10'
+                            },
+                            confirmPassword: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The confirm password is required and can\'t be empty'
+                                    },
+                                    identical: {
+                                        field: 'password',
+                                        message: 'The password and its confirm are not the same'
+                                    }
+                                }
+                            },
+                            ages: {
+                                validators: {
+                                    lessThan: {
+                                        value: 100,
+                                        inclusive: true,
+                                        message: 'The ages has to be less than 100'
+                                    },
+                                    greaterThan: {
+                                        value: 10,
+                                        inclusive: false,
+                                        message: 'The ages has to be greater than or equals to 10'
+                                    }
                                 }
                             }
                         }
-                    }
+                    });
                 });
-            });
-        </script>
+            </script>
 
 
-        <!-- demo below -->
-        <div class="row">
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-            <div class="col-md-3">.col-md-3</div>
-        </div>
-        <h1><code>&lt;h1&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h1>
-        <h2><code>&lt;h2&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h2>
-        <h3><code>&lt;h3&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h3>
-        <h4><code>&lt;h4&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h4>
-        <h5><code>&lt;h5&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h5>
-        <h6><code>&lt;h6&gt;</code>. Bootstrap heading
-            <small>Secondary text</small>
-        </h6>
-        <h1 class="text-hide">Custom heading</h1>
-        <p class="bg-success">页面主题，正文<br/>akhfaksksajhflkasjhdflaskhfaklsjhflakshfkashdfkj,askdfhsakfjhsalkfhj</p>
-        <p class="text-left">段落：发卡机活动卡激活的<kbd>ctrl+l</kbd>卡号大客户打卡机活动空间asdasdasda</p>
-        <p class="lead text-right">更突出的段落
-            <mark>高亮</mark>
-            卡卡卡
-            <del>删除</del>
-            卡卡卡卡asdasdads
-        </p>
-        <p class="text-center">普通段落啊开始<abbr class="initialism" title="比较小">疯狂</abbr><abbr
-                title="skldjfsfjlasjflks">世界</abbr>合肥科
-            <mark>高亮</mark>
-            技爱好
-            <del>删除</del>
-            反馈哈时刻发挥空间发挥asdasdasd
-        </p>
-        <del><code>&lt;del&gt;</code></del>
-        <s><code>&lt;s&gt;</code></s>
-        <ins><code>&lt;ins&gt;</code></ins>
-        <u><code>&lt;u&gt;</code></u>
-        <br/>
-        <pre>&lt;p&gt;Sample text here...&lt;/p&gt; using <code>&lt;pre&gt;</code><br/>
+            <!-- demo below -->
+            <div class="row">
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+                <div class="col-md-3">.col-md-3</div>
+            </div>
+            <h1><code>&lt;h1&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h1>
+            <h2><code>&lt;h2&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h2>
+            <h3><code>&lt;h3&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h3>
+            <h4><code>&lt;h4&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h4>
+            <h5><code>&lt;h5&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h5>
+            <h6><code>&lt;h6&gt;</code>. Bootstrap heading
+                <small>Secondary text</small>
+            </h6>
+            <h1 class="text-hide">Custom heading</h1>
+            <p class="bg-success">页面主题，正文<br/>akhfaksksajhflkasjhdflaskhfaklsjhflakshfkashdfkj,askdfhsakfjhsalkfhj</p>
+            <p class="text-left">段落：发卡机活动卡激活的<kbd>ctrl+l</kbd>卡号大客户打卡机活动空间asdasdasda</p>
+            <p class="lead text-right">更突出的段落
+                <mark>高亮</mark>
+                卡卡卡
+                <del>删除</del>
+                卡卡卡卡asdasdads
+            </p>
+            <p class="text-center">普通段落啊开始<abbr class="initialism" title="比较小">疯狂</abbr><abbr
+                    title="skldjfsfjlasjflks">世界</abbr>合肥科
+                <mark>高亮</mark>
+                技爱好
+                <del>删除</del>
+                反馈哈时刻发挥空间发挥asdasdasd
+            </p>
+            <del><code>&lt;del&gt;</code></del>
+            <s><code>&lt;s&gt;</code></s>
+            <ins><code>&lt;ins&gt;</code></ins>
+            <u><code>&lt;u&gt;</code></u>
+            <br/>
+            <pre>&lt;p&gt;Sample text here...&lt;/p&gt; using <code>&lt;pre&gt;</code><br/>
             @RequestMapping("/showAllUser")
             public String showAllUser(@RequestParam int pageNum, @RequestParam int pageSize, Model model) {
                 PageHelper.startPage(pageNum, pageSize);
@@ -370,160 +373,161 @@
                 return "user/listUser";
             }
         </pre>
-        <br/>
-        <samp>This text is meant to be treated as sample output from a computer program.</samp>
-        <br/><br/>
+            <br/>
+            <samp>This text is meant to be treated as sample output from a computer program.</samp>
+            <br/><br/>
 
-        <div class="well">
-            <form class="form-horizontal">
-                <fieldset>
-                    <legend>Legend</legend>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Email"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                        <div class="col-lg-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"/> Checkbox
-                                </label>
+            <div class="well">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Legend</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                        <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Radios</label>
-                        <div class="col-lg-10">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
-                                           checked=""/>
-                                    Option one is this
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
-                                    Option two can be something else
-                                </label>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                            <div class="col-lg-10">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"/> Checkbox
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="select" class="col-lg-2 control-label">Selects</label>
-                        <div class="col-lg-10">
-                            <select class="form-control" id="select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                            <br/>
-                            <select multiple="" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="reset" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Radios</label>
+                            <div class="col-lg-10">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
+                                               checked=""/>
+                                        Option one is this
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
+                                        Option two can be something else
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </fieldset>
-            </form>
+                        <div class="form-group">
+                            <label for="select" class="col-lg-2 control-label">Selects</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" id="select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <br/>
+                                <select multiple="" class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="reset" class="btn btn-default">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <blockquote>
+                <p>将任何 HTML 元素包裹在<code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用<code>&lt;p&gt;</code>标签</p>
+                <footer>某个人 in <cite title="什么鬼东西">《阿布拉把杜布拉》</cite></footer>
+            </blockquote>
+
+            <ul>
+                <li>aaa</li>
+                <li>vvv</li>
+                <li>dasda
+                    <ul>
+                        <li>1111</li>
+                        <li>22222</li>
+                        <li>3333
+                            <ul>
+                                <li>1111</li>
+                                <li>22222</li>
+                                <li>3333</li>
+                            </ul>
+                        </li>
+                        <li>4444</li>
+                        <li>555</li>
+                        <li>666</li>
+                    </ul>
+                </li>
+                <li>ccc</li>
+                <li>dd
+                    <ul>
+                        <li>1111</li>
+                        <li>22222</li>
+                        <li>3333</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ol>
+                <li>aaa</li>
+                <li>vvv</li>
+                <li>dasda
+                    <ol>
+                        <li>1111</li>
+                        <li>22222</li>
+                        <li>3333
+                            <ul>
+                                <li>1111</li>
+                                <li>22222</li>
+                                <li>3333</li>
+                            </ul>
+                        </li>
+                        <li>4444</li>
+                        <li>555</li>
+                        <li>666</li>
+                    </ol>
+                </li>
+                <li>ccc</li>
+                <li>dd
+                    <ol>
+                        <li>1111</li>
+                        <li>22222</li>
+                        <li>3333</li>
+                    </ol>
+                </li>
+            </ol>
+
+            <dl class="dl-horizontal">
+                <dt><code>&lt;dt&gt;</code> is a Description</dt>
+                <dd><code>&lt;dd&gt;</code> is the content</dd>
+                <dd>and wrapped with <code>&lt;dl&gt;</code></dd>
+                <dt>Euismod</dt>
+                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                    Donec id elit non mi porta gravida at eget metus.
+                </dd>
+                <dt>Malesuada porta</dt>
+                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+            </dl>
         </div>
-
-        <blockquote>
-            <p>将任何 HTML 元素包裹在<code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用<code>&lt;p&gt;</code>标签</p>
-            <footer>某个人 in <cite title="什么鬼东西">《阿布拉把杜布拉》</cite></footer>
-        </blockquote>
-
-        <ul>
-            <li>aaa</li>
-            <li>vvv</li>
-            <li>dasda
-                <ul>
-                    <li>1111</li>
-                    <li>22222</li>
-                    <li>3333
-                        <ul>
-                            <li>1111</li>
-                            <li>22222</li>
-                            <li>3333</li>
-                        </ul>
-                    </li>
-                    <li>4444</li>
-                    <li>555</li>
-                    <li>666</li>
-                </ul>
-            </li>
-            <li>ccc</li>
-            <li>dd
-                <ul>
-                    <li>1111</li>
-                    <li>22222</li>
-                    <li>3333</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ol>
-            <li>aaa</li>
-            <li>vvv</li>
-            <li>dasda
-                <ol>
-                    <li>1111</li>
-                    <li>22222</li>
-                    <li>3333
-                        <ul>
-                            <li>1111</li>
-                            <li>22222</li>
-                            <li>3333</li>
-                        </ul>
-                    </li>
-                    <li>4444</li>
-                    <li>555</li>
-                    <li>666</li>
-                </ol>
-            </li>
-            <li>ccc</li>
-            <li>dd
-                <ol>
-                    <li>1111</li>
-                    <li>22222</li>
-                    <li>3333</li>
-                </ol>
-            </li>
-        </ol>
-
-        <dl class="dl-horizontal">
-            <dt><code>&lt;dt&gt;</code> is a Description</dt>
-            <dd><code>&lt;dd&gt;</code> is the content</dd>
-            <dd>and wrapped with <code>&lt;dl&gt;</code></dd>
-            <dt>Euismod</dt>
-            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-                Donec id elit non mi porta gravida at eget metus.
-            </dd>
-            <dt>Malesuada porta</dt>
-            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-        </dl>
     </div>
 </div>
 </body>
