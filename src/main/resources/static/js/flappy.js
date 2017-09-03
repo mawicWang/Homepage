@@ -112,6 +112,9 @@ $(document).ready(function () {
                 game.physics.arcade.overlap(this.bird, this.pipeGroup, this.hitPipe, null, this); //检测与管道的碰撞
                 // this.pipeGroup.forEachExists(this.checkScore, this); //分数检测和更新
 
+                if (this.bird.body.y < 0) {
+                    this.bird.body.y = 0;
+                }
             };
 
             this.startGame = function () {
@@ -202,7 +205,7 @@ $(document).ready(function () {
                 ++this.score;
                 if (this.score > 0) {
                     this.soundScore.play(); //得分的音效
-                    this.scoreTxt.text =this.score; //更新分数的显示
+                    this.scoreTxt.text = this.score; //更新分数的显示
                 }
             }
 
