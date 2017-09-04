@@ -27,7 +27,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="javascript:changeTheme()">换肤</a></li>
                             <li><a th:href="@{/game}">游戏</a></li>
-                            <li><a href="#">文章</a></li>
+                            <li><a th:href="@{/article}">文章</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="http://baidu.com">百度搜索</a></li>
                             <li role="separator" class="divider"></li>
@@ -45,8 +45,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">配置 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a th:href="@{/showAllUser((pageNum=1,pageSize=3))}">用户</a></li>
-                            <li><a href="#">类别</a></li>
+                            <li><a th:href="@{/showAllUser}">User</a></li>
+                            <li><a href="#">Category</a></li>
+                            <li><a href="#">Tag</a></li>
+                            <li><a href="#">Author</a></li>
                         </ul>
                     </li>
                 </ul>

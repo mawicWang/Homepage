@@ -18,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/showAllUser")
-    public String showAllUser(@RequestParam int pageNum, @RequestParam int pageSize, Model model) {
+    public String showAllUser(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "5") int pageSize, Model model) {
         List<User> listUser = userService.findAllUser(pageNum, pageSize);
         PageInfo page = new PageInfo(listUser,5);
         model.addAttribute(listUser);
