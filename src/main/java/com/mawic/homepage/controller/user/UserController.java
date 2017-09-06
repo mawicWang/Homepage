@@ -1,8 +1,9 @@
 package com.mawic.homepage.controller.user;
 
-import com.github.pagehelper.PageInfo;
 import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
+import com.mawic.homepage.utils.Constants;
+import com.mawic.homepage.utils.GridInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/showAllUser")
-    public String showAllUser(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "5") int pageSize, Model model) {
+    @RequestMapping("/listUser")
+    public String showAllUser(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = Constants.DEFAULT_PAGE_SIZE) int pageSize, Model model) {
         List<User> listUser = userService.findAllUser(pageNum, pageSize);
-        PageInfo page = new PageInfo(listUser,5);
-        model.addAttribute(listUser);
-        model.addAttribute(page);
+
+        String[] header = {"id", "name", "password", "enable", "updateTime", "createTime"};
+        String url = "listUser";
+        GridInfo<User> gridInfo = new GridInfo<>(listUser, header, url, t -> {
+            String[] s = {t.getId().toString(), t.getUsername(), t.getPassword(), t.isEnable().toString(), t.getUpdateTime().toString(), t.getCreateTime().toString()};
+            return s;
+        });
+        model.addAttribute("gridInfo", gridInfo);
         return "user/listUser";
     }
 

@@ -3,19 +3,19 @@ package com.mawic.homepage.domain.model.user;
 import java.util.Date;
 
 public class User {
-    private int id;
+    private Integer id;
     private String username;
     private String password;
     private String email;
-    private boolean enable;
+    private Boolean enable;
     private Date createTime;
     private Date updateTime;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -43,11 +43,11 @@ public class User {
         this.email = email;
     }
 
-    public boolean isEnable() {
+    public Boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setEnable(Boolean enable) {
         this.enable = enable;
     }
 
