@@ -32,6 +32,6 @@ public class AuthorController {
         });
 
         model.addAttribute("gridInfo", gridInfo);
-        return "/article/author";
+        return "article/author";
     }
 }

@@ -6,9 +6,9 @@ spring:
         cache: false
     datasource:
         name: springbootDB
-        url: jdbc:mysql://118.99.23.120:3306/springboot
+        url: jdbc:mysql://104.225.148.124:3306/blog
         username: root
-        password: asdfgh
+        password: qweasd
 #        # 使用druid数据源
 #        type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver

@@ -12,16 +12,16 @@ import java.util.List;
 
 public interface CategoryMapper {
 
-    @Select("select * from Category")
+    @Select("select * from category")
     List<Category> findAll();
 
-    @Select("select * from Category")
+    @Select("select * from category")
     @Results(
             @Result(property = "articleCount", column = "id",
                     one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.ArticleMapper.countByCategoryId", fetchType = FetchType.LAZY))
     )
     List<Category> findAllWithArticleCount();
 
-    @Select("select * from Category where id = #{id}")
+    @Select("select * from category where id = #{id}")
     Category findById(int id);
 }

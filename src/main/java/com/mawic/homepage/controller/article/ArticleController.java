@@ -29,5 +29,4 @@ public class ArticleController {
         return "article/article";
     }
 
-//    public String
 }

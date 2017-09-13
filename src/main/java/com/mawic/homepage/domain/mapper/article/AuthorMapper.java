@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface AuthorMapper {
 
-    @Select("select * from Author")
+    @Select("select * from author")
     List<Author> findAll();
 
-    @Select("select * from Author where id = #{id}")
+    @Select("select * from author where id = #{id}")
     Author findById(int id);
 }

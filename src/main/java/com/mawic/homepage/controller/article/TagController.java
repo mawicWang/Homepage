@@ -32,6 +32,6 @@ public class TagController {
         });
 
         model.addAttribute("gridInfo", gridInfo);
-        return "/article/tag";
+        return "article/tag";
     }
 }

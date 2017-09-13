@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ArticleMapper {
 
-    @Select("select * from Article")
+    @Select("select * from article")
     @Results({
             @Result(property = "author", column = "author_id", one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.AuthorMapper.findById", fetchType = FetchType.LAZY)),
             @Result(property = "category", column = "category_id", one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.CategoryMapper.findById", fetchType = FetchType.LAZY)),
@@ -17,7 +17,7 @@ public interface ArticleMapper {
     })
     List<Article> findAll();
 
-    @Select({"select *,substr(content,1,50) as contentOutline from Article"})
+    @Select({"select *,substr(content,1,50) as contentOutline from article"})
     @Results({
             @Result(property = "author", column = "author_id", one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.AuthorMapper.findById", fetchType = FetchType.LAZY)),
             @Result(property = "category", column = "category_id", one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.CategoryMapper.findById", fetchType = FetchType.LAZY)),
@@ -25,7 +25,7 @@ public interface ArticleMapper {
     })
     List<Article> findAllOutLines();
 
-    @Select("select count(*) from Article where category_id = #{categoryId}")
+    @Select("select count(*) from article where category_id = #{categoryId}")
     int countByCategoryId(int categoryId);
 
 

@@ -32,6 +32,6 @@ public class CategoryController {
         });
 
         model.addAttribute("gridInfo", gridInfo);
-        return "/article/category";
+        return "article/category";
     }
 }
