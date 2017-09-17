@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/simpleNavbarLayout">
+<head>
+    <title>Blog Editor</title>
+    <script th:src="@{/lib/marked/marked.min.js}"></script>
+    <script th:src="@{/js/markdownEditor.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/markdownEditor.css}"/>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+<body style="height: 100vh;display: -webkit-flex;display:flex;align-items:stretch;">
+<div layout:fragment="content" style="width: 100%;">
+    <div class="editor-wrapper">
+        <div class="editor">
+            <textarea id="content" name="content" class="markdown form-control "
+                      th:text="${defaultMarkdown}"></textarea>
+        </div>
+        <div class="editor">
+            <div id="preview" class="marked form-control"></div>
+        </div>
+    </div>
+    <div id="resizeFull" class="iconAnim">
+        <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+    </div>
+    <div id="conf" class="iconAnim" data-toggle="modal" data-target="#markdownConfDialog">
+        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+    </div>
+
+    <div class="container hide" id="fullPreview">
+    </div>
+
+    <div class="modal fade" id="markdownConfDialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">保存</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="markdownForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="title" name="title" placeholder="请输入标题"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="outline" class="col-sm-2 control-label">简介</label>
+                            <div class="col-sm-10">
+                                <input type="textarea" class="form-control" id="outline" name="outline"
+                                       placeholder="请输入简介"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="btnLoginSubmit" data-loading-text="正在提交..." autocomplete="off"
+                                        class="btn btn-primary">提交
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
