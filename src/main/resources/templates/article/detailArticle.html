@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/defaultLayout">
+<head>
+    <title th:text="${article.title}">Article title</title>
+
+    <script th:src="@{/lib/marked/marked.min.js}"></script>
+    <script th:src="@{/js/detailArticle.js}"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div layout:fragment="content">
+        <input type="hidden" id="markdown" th:value="${article.content}"/>
+
+        <div class="page-header" id="title">
+            <h1 th:text="${article.title}">page header</h1>
+        </div>
+        <h6>
+            <small>作者:</small>
+            <a href="" th:text="${article.author.name}"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <small>发布时间:</small>
+            <small th:text="${#dates.format(article.createTime,'yyyy-MM-dd HH:mm:ss')}">createTime</small>&nbsp;&nbsp;&nbsp;&nbsp;
+            <small>分类:</small>
+            <a th:href="@{/article(category=${article.category.id})}" th:text="${article.category.name}"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <small>标签:</small>
+            <span th:each="tag,it:${article.tags}" th:text="${tag.name}" class="label label-info">tag</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </h6>
+        <hr/>
+        <div id="articleContent"></div>
+    </div>
+</div>
+</body>
+</html>

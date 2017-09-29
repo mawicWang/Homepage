@@ -7,12 +7,12 @@
         <table class="table table-bordered table-hover ">
             <thead>
             <tr>
-                <th th:each="head:${gridInfo.header}" th:text="${head}">colname</th>
+                <th th:each="head:${gridInfo.header}" th:utext="${head}">colname</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="row,iterStat : ${gridInfo.list}">
-                <td th:each="cell:${row}" th:text="${cell}">cell</td>
+                <td th:each="cell:${row}" th:utext="${cell}">cell</td>
             </tr>
             </tbody>
         </table>

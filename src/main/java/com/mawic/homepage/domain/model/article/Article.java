@@ -1,15 +1,20 @@
 package com.mawic.homepage.domain.model.article;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 public class Article {
 
-    private int id;
+    private Integer id;
     private String title;
     private String content;
-    private int authorId;
-    private int categoryId;
+    private String outline;
+    private Integer authorId;
+    private Integer categoryId;
     private Date createTime;
     private Date updateTime;
 
@@ -19,13 +24,45 @@ public class Article {
     private Collection<Tag> tags;
 
     // transient
-    private String contentOutline;
+    private String listTagStr;
 
-    public int getId() {
+    public List<String> getTagNames() {
+        String str = this.getListTagStr();
+        if (StringUtils.isBlank(str)) {
+            return null;
+        }
+        List<String> tagNames = new ArrayList<>();
+        for (String s : str.split(",")) {
+            if (StringUtils.isNotBlank(str)) {
+                tagNames.add(s);
+            }
+        }
+        return tagNames;
+    }
+
+    public String getListTagStr() {
+        if (listTagStr != null) {
+            return listTagStr;
+        }
+        if (tags == null) {
+            return null;
+        }
+        List<String> tagNames = new ArrayList<>();
+        for (Tag t : tags) {
+            tagNames.add(t.getName());
+        }
+        return listTagStr = StringUtils.join(tagNames, ",");
+    }
+
+    public void setListTagStr(String listTagStr) {
+        this.listTagStr = listTagStr;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,19 +82,27 @@ public class Article {
         this.content = content;
     }
 
-    public int getAuthorId() {
+    public String getOutline() {
+        return outline;
+    }
+
+    public void setOutline(String outline) {
+        this.outline = outline;
+    }
+
+    public Integer getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(int authorId) {
+    public void setAuthorId(Integer authorId) {
         this.authorId = authorId;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -93,20 +138,11 @@ public class Article {
         this.category = category;
     }
 
-
     public Collection<Tag> getTags() {
         return tags;
     }
 
     public void setTags(Collection<Tag> tags) {
         this.tags = tags;
-    }
-
-    public String getContentOutline() {
-        return contentOutline;
-    }
-
-    public void setContentOutline(String contentOutline) {
-        this.contentOutline = contentOutline;
     }
 }

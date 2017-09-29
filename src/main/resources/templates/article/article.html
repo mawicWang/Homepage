@@ -12,24 +12,26 @@
         <br/>
         <div class="row">
             <div class="list-group col-lg-3">
-                <a th:each="category,iter:${listCategory}"
-                   href="" class="list-group-item">
+                <a th:each="category,iter:${listCategory}" th:classappend="${categoryId}==${category.id}?'active'"
+                   th:href="@{'?categoryId='+${category.id}}" class="list-group-item">
                     <span th:text="${category.articleCount}" class="badge">14</span>
                     <p th:text="${category.name}">categoryName</p>
                 </a>
             </div>
             <ul class="list-group col-lg-9">
                 <li th:each="article,iter:${listArticle}" class="list-group-item">
-                    <a href=""><h4 th:text="${article.title}">title</h4></a>
-                    <p th:text="${article.content}"
+                    <a th:href="@{'/article/'+${article.id}}"><h4 th:text="${article.title}">title</h4></a>
+                    <p th:utext="${article.outline}"
                        style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">content</p>
                     <div class="row">
-                        <h6 class="col-lg-7 col-md-7">
-                            <span th:each="tag,it:${article.tags}" th:text="${tag.name}" class="label label-info">tag</span>
+                        <h6 class="col-lg-7 col-md-7 col-sm-7">
+                            <span th:each="tag,it:${article.tags}" th:text="${tag.name}"
+                                  class="label label-info">tag</span>
                         </h6>
-                        <h6  class="col-lg-5 col-md-5 text-right">
+                        <h6 class="col-lg-5 col-md-5 col-sm-5 text-right">
                             = <a href="" th:text="${article.author.name}"></a> =&nbsp;&nbsp;
-                            <small th:text="${#dates.format(article.createTime,'yyyy-MM-dd HH:mm:ss')}">createTime</small>
+                            <small th:text="${#dates.format(article.createTime,'yyyy-MM-dd HH:mm:ss')}">createTime
+                            </small>
                         </h6>
                     </div>
                 </li>

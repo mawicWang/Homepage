@@ -1,4 +1,4 @@
-package com.mawic.homepage.utils;
+package com.mawic.homepage.common.utils;
 
 
 @FunctionalInterface

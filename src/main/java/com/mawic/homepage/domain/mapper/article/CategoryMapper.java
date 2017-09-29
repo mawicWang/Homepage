@@ -1,7 +1,7 @@
 package com.mawic.homepage.domain.mapper.article;
 
 import com.mawic.homepage.domain.model.article.Category;
-import com.mawic.homepage.utils.Constants;
+import com.mawic.homepage.common.utils.Constants;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -16,10 +16,11 @@ public interface CategoryMapper {
     List<Category> findAll();
 
     @Select("select * from category")
-    @Results(
+    @Results({
+            @Result(property = "id", column = "id", id = true),
             @Result(property = "articleCount", column = "id",
                     one = @One(select = Constants.MYBATIS_MAPPER_PACKAGE + "article.ArticleMapper.countByCategoryId", fetchType = FetchType.LAZY))
-    )
+    })
     List<Category> findAllWithArticleCount();
 
     @Select("select * from category where id = #{id}")

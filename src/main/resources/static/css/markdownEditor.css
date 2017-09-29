@@ -45,3 +45,39 @@
     right: 5px;
     transform-origin: 100% 0 0;
 }
+
+.tag-input {
+    display: table;
+    word-spacing: -1em;
+}
+
+.tag-input input {
+    border: none;
+    width: 3em !important;
+    outline: none;
+    line-height: 1;
+}
+
+.tag-input .tag {
+    display: inline-block;
+    cursor: pointer;
+    word-spacing: 0;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.tag-input .tag > span {
+    vertical-align: bottom;
+    width: 0;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+    transition-delay: initial;
+}
+
+.tag-input .tag:hover > span {
+    width: 12px;
+    opacity: 1;
+}
+

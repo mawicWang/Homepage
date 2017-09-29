@@ -2,8 +2,8 @@ package com.mawic.homepage.controller.user;
 
 import com.mawic.homepage.domain.model.user.User;
 import com.mawic.homepage.service.UserService;
-import com.mawic.homepage.utils.Constants;
-import com.mawic.homepage.utils.GridInfo;
+import com.mawic.homepage.common.utils.Constants;
+import com.mawic.homepage.common.utils.GridInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

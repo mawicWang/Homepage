@@ -16,14 +16,14 @@
     <div class="editor-wrapper">
         <div class="editor">
             <textarea id="content" name="content" class="markdown form-control "
-                      th:text="${defaultMarkdown}"></textarea>
+                      th:text="${markdownContent}"></textarea>
         </div>
         <div class="editor">
             <div id="preview" class="marked form-control"></div>
         </div>
     </div>
     <div id="resizeFull" class="iconAnim">
-        <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
     </div>
     <div id="conf" class="iconAnim" data-toggle="modal" data-target="#markdownConfDialog">
         <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
@@ -41,23 +41,62 @@
                     <h3 class="modal-title">保存</h3>
                 </div>
                 <div class="modal-body">
-                    <form id="markdownForm" class="form-horizontal">
+                    <form id="markdownForm" th:method="POST" th:action="@{'/blogEditor.'+${state}+'.save'}"
+                          th:object="${article}" class="form-horizontal">
+                        <input type="hidden" id="articleId" th:field="*{id}"/>
+                        <input type="hidden" id="articleContent" name="content"/>
+                        <input type="hidden" id="listTagStr" th:field="*{listTagStr}"/>
+
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label">标题</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="title" name="title" placeholder="请输入标题"/>
+                                <input class="form-control" id="title" placeholder="请输入标题"
+                                       th:field="*{title}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="outline" class="col-sm-2 control-label">简介</label>
                             <div class="col-sm-10">
                                 <input type="textarea" class="form-control" id="outline" name="outline"
-                                       placeholder="请输入简介"/>
+                                       placeholder="请输入简介" th:field="*{outline}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="author" class="col-sm-2 control-label">作者</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="author" name="authorId">
+                                    <option value="">-- 请选择作者 --</option>
+                                    <option th:each="aut:${listAuthor}" th:value="${aut.id}"
+                                            th:selected="(${aut.id}==(*{author}?*{author.id}))"
+                                            th:text="${aut.name}">aut
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category" class="col-sm-2 control-label">分类</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="category" name="categoryId">
+                                    <option value="">-- 请选择分类 --</option>
+                                    <option th:each="cate:${listCategory}" th:value="${cate.id}"
+                                            th:selected="(${cate.id}==(*{category}?*{category.id}))"
+                                            th:text="${cate.name}">cate
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tag" class="col-sm-2 control-label">标签</label>
+                            <div class="col-sm-10">
+                                <div class="form-control tag-input" id="tag" name="tag">
+                                    <input type="text" placeholder="" size="1"/>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" id="btnLoginSubmit" data-loading-text="正在提交..." autocomplete="off"
+                                <button type="submit" id="btnSaveBlogSubmit" data-loading-text="正在提交..."
+                                        autocomplete="off"
                                         class="btn btn-primary">提交
                                 </button>
                             </div>
